@@ -35,7 +35,7 @@
   "dependencies": {
     "@headlessui/react": "1.7.5",
     "@heroicons/react": "^2.0.17",
-    "@raydium-io/raydium-sdk": "git+ssh://git@github.com:BTCLTC/raydium-sdk.git#master",
+    "@raydium-io/raydium-sdk": "https://github.com/BTCLTC/raydium-sdk",
     "@solana-mobile/mobile-wallet-adapter-protocol": "^2.0.1",
     "@solana-mobile/mobile-wallet-adapter-protocol-web3js": "^2.0.1",
     "@solana-mobile/wallet-adapter-mobile": "^2.0.1",

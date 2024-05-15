@@ -628,9 +628,9 @@
     bs58 "^4.0.1"
     eventemitter3 "^4.0.7"
 
-"@raydium-io/raydium-sdk@git+ssh://git@github.com:BTCLTC/raydium-sdk.git#master":
+"@raydium-io/raydium-sdk@https://github.com/BTCLTC/raydium-sdk":
   version "1.3.1-beta.52"
-  resolved "git+ssh://git@github.com:BTCLTC/raydium-sdk.git#2ef854c68ff441b93a85b0e6963e35c28efe3524"
+  resolved "https://github.com/BTCLTC/raydium-sdk#2ef854c68ff441b93a85b0e6963e35c28efe3524"
   dependencies:
     "@solana/buffer-layout" "^4.0.1"
     "@solana/spl-token" "^0.3.9"
