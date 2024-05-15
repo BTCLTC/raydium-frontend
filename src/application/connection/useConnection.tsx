@@ -1,4 +1,4 @@
-import { Connection, EpochInfo } from '@solana/web3.js'
+import { clusterApiUrl, Connection } from '@solana/web3.js'
 
 import { create } from 'zustand'
 
@@ -60,7 +60,7 @@ export const LOCALSTORAGE_KEY_USER_RPC = 'USER_RPC'
 export const SESSION_STORAGE_USER_SELECTED_RPC = 'user-selected-rpc'
 /** zustand store hooks */
 export const useConnection = create<ConnectionStore>((set, get) => ({
-  connection: undefined,
+  connection: new Connection(clusterApiUrl('devnet')),
 
   availableEndPoints: [],
 
@@ -70,7 +70,7 @@ export const useConnection = create<ConnectionStore>((set, get) => ({
   isLoading: false,
   switchConnectionFailed: false,
 
-  userCostomizedUrlText: 'https://',
+  userCostomizedUrlText: clusterApiUrl('devnet'),
 
   switchRpc,
   deleteRpc,
