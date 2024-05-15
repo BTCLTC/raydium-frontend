@@ -123,7 +123,7 @@ export default async function txCreateAndInitNewPool({ onAllSuccess }: { onAllSu
       checkCreateATAOwner: true,
       makeTxVersion: txVersion,
       lookupTableCache,
-      feeDestinationId: new PublicKey('7YttLkHDoNj9wyDur5pM1ejNaAvT9X4eqaYcHQqtj2G5')
+      feeDestinationId: new PublicKey('BaxwYWafs4xeTYQqAk8jRTN7Fi1KtDUXKmMkkfQyWRwC')
     })
     transactionCollector.add(innerTransactions, {
       onTxSuccess() {
