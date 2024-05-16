@@ -36,8 +36,8 @@ export const routeMiddleMints = {
 
 export const addToken = {
   [BulbaMint.toBase58()]: {
-    name: 'Bluba',
-    symbol: 'Bluba',
+    name: 'Bulba',
+    symbol: 'Bulba',
     decimals: 9,
     mint: BulbaMint.toBase58(),
     icon: 'https://bafkreiectrpmrbh5fg6dxsnoxetus7l7hw6b4g5pcijvmzadr3dcm7gghm.ipfs.nftstorage.link',
