@@ -1,8 +1,6 @@
 import toPubString, { toPub } from '@/functions/format/toMintString'
 import { PublicKey } from '@solana/web3.js'
 import { WSOLMint } from './quantumSOL'
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
-import { Token } from '@raydium-io/raydium-sdk'
 
 export const BulbaMint = toPub('5P7a3jm2g7vX3dTh9LqWYFYH1jDR4wq5PE7SbogcDKVX')
 export const PAIMint = toPub('Ea5SjE2Y6yvCeW5dYTn7PYMuW5ikXkvbGdcmSnXeaLjS')
@@ -38,12 +36,10 @@ export const routeMiddleMints = {
 
 export const addToken = {
   [BulbaMint.toBase58()]: {
-    ...new Token(TOKEN_PROGRAM_ID,
-      BulbaMint,
-      9,
-      'Bluba',
-      'Bluba'
-    ),
+    name: 'Bluba',
+    symbol: 'Bluba',
+    decimals: 9,
+    mint: BulbaMint.toBase58(),
     icon: 'https://bafkreiectrpmrbh5fg6dxsnoxetus7l7hw6b4g5pcijvmzadr3dcm7gghm.ipfs.nftstorage.link',
     isToken2022: false,
     hasFreeze: false
