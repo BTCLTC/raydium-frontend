@@ -26,7 +26,7 @@ import {
 } from './quantumSOL'
 import { LpToken, SplToken, TokenJson } from './type'
 import { createSplToken } from './useTokenListsLoader'
-import { RAYMint, SOLMint } from './wellknownToken.config'
+import { BulbaMint, SOLMint } from './wellknownToken.config'
 
 export type TokenStore = {
   tokenIconSrcs: Record<HexAddress, SrcAddress>
@@ -258,9 +258,9 @@ export const useToken = create<TokenStore>((set, get) => ({
 
   sortTokensWithBalance(tokens: SplToken[], useInputTokensOnly?: boolean) {
     const { getToken } = get()
-    const RAY = getToken(RAYMint)
+    const Bulba = getToken(BulbaMint)
 
-    const whiteList = shakeUndifindedItem([RAY, QuantumSOLVersionSOL])
+    const whiteList = shakeUndifindedItem([Bulba, QuantumSOLVersionSOL])
     // noQuantumSOL
     const whiteListMints = whiteList.filter((token) => !isQuantumSOL(token)).map((token) => token.mintString)
 

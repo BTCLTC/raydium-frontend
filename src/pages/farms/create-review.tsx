@@ -4,7 +4,7 @@ import txCreateNewFarm from '@/application/createFarm/txCreateNewFarm'
 import useCreateFarms from '@/application/createFarm/useCreateFarm'
 import useFarms from '@/application/farms/useFarms'
 import { routeBack, routeTo } from '@/application/routeTools'
-import { RAYMint } from '@/application/token/wellknownToken.config'
+import { BulbaMint } from '@/application/token/wellknownToken.config'
 import useWallet from '@/application/wallet/useWallet'
 import { AddressItem } from '@/components/AddressItem'
 import Button from '@/components/Button'
@@ -43,8 +43,8 @@ export default function CreateFarmReviewPage() {
     setKey(String(Date.now()))
   }, [pathname])
 
-  const rewardRayAmount = rewards.find((r) => isMintEqual(r.token?.mint, RAYMint))?.amount
-  const userRayBalance = balances[toPubString(RAYMint)]
+  const rewardRayAmount = rewards.find((r) => isMintEqual(r.token?.mint, BulbaMint))?.amount
+  const userRayBalance = balances[toPubString(BulbaMint)]
   const haveOver300Ray = gte(userRayBalance ?? 0, add(0, rewardRayAmount ?? 300))
   useAvailableCheck()
 
@@ -53,7 +53,7 @@ export default function CreateFarmReviewPage() {
       className="frosted-glass-teal px-16 self-stretch mobile:w-full"
       isLoading={isApprovePanelShown}
       size={isMobile ? 'sm' : 'lg'}
-      validators={[{ should: haveOver300Ray, fallbackProps: { children: 'Insufficient RAY balance' } }]}
+      validators={[{ should: haveOver300Ray, fallbackProps: { children: 'Insufficient Bulba balance' } }]}
       onClick={async () => {
         txCreateNewFarm({
           onReceiveFarmId(farmId) {
@@ -77,7 +77,7 @@ export default function CreateFarmReviewPage() {
   const estimatedIndicator = (
     <Col className="mt-4 text-sm font-medium items-center">
       <div>
-        <span className="text-[#abc4ff80]">Fee:</span> <span className="text-[#abc4ff]">300 RAY</span>
+        <span className="text-[#abc4ff80]">Fee:</span> <span className="text-[#abc4ff]">300 Bulba</span>
       </div>
       <div>
         <span className="text-[#abc4ff80]">Est. transaction fee:</span>{' '}
@@ -115,7 +115,7 @@ export default function CreateFarmReviewPage() {
         <div className="font-medium text-sm mobile:text-xs text-justify leading-snug text-[#abc4ff80] mb-8">
           <span className="text-[#DA2EEF]">Please note:</span> Rewards allocated to farms cannot be withdrawn after
           farming starts. Newly created farms generally appear on Raydium 10-30 minutes after creation, depending on
-          Solana network status. A one-time fee of 300 RAY is required to create a farm, which will be deposited into
+          Solana network status. A one-time fee of 300 Bulba is required to create a farm, which will be deposited into
           the Raydium treasury.
         </div>
 
@@ -125,7 +125,7 @@ export default function CreateFarmReviewPage() {
           </div>
         ) : (
           <div className="text-[#DA2EEF] font-medium text-center text-sm my-4 mobile:mx-4">
-            Creating a farm requires a one-time 300 RAY fee. Your RAY balance: {toString(userRayBalance) || 0} RAY
+            Creating a farm requires a one-time 300 Bulba fee. Your Bulba balance: {toString(userRayBalance) || 0} Bulba
           </div>
         )}
 

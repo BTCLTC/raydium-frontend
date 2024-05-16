@@ -112,7 +112,7 @@ type ShowHydratedIdoInfos = {
   }
 }
 
-export type IdoPoolInfoAccess = 'RAY'
+export type IdoPoolInfoAccess = 'Bulba'
 export type TicketInfo = { no: number; isWinning?: boolean }
 export type TicketTailNumberInfo = {
   no: number | string

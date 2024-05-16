@@ -566,7 +566,7 @@ function LotteryStateInfoPanel({ className }: { className?: string }) {
                 fieldValue={
                   <Row className="items-baseline gap-1">
                     <div className="text-white font-medium">
-                      {formatNumber(toString(stakingHydratedInfo?.userStakedLpAmount)) || '--'} RAY
+                      {formatNumber(toString(stakingHydratedInfo?.userStakedLpAmount)) || '--'} Bulba
                     </div>
                   </Row>
                 }
@@ -585,7 +585,7 @@ function LotteryStateInfoPanel({ className }: { className?: string }) {
                               : '(not connected)'}
                           </div>
                           <div className="font-normal text-xs opacity-50">
-                            The more and longer you stake RAY the more tickets you will receive.
+                            The more and longer you stake Bulba the more tickets you will receive.
                           </div>
                         </div>
                       </Tooltip.Panel>
@@ -627,7 +627,7 @@ function LotteryStateInfoPanel({ className }: { className?: string }) {
           )}
           {idoInfo.isUpcoming && (
             <IdoInfoItem
-              fieldName="RAY staking deadline"
+              fieldName="Bulba staking deadline"
               fieldValue={
                 <Row className="items-baseline gap-1">
                   {isDateBefore(getChainDate(), idoInfo.stakeTimeEnd) ? (
@@ -763,12 +763,12 @@ function LotteryProjectInfoPanel({ className }: { className?: string }) {
           >
             <Col className="items-center gap-3">
               <StepBadge n={1} />
-              <div className="text-sm text-center text-[#ABC4FF] font-semibold">Stake RAY</div>
+              <div className="text-sm text-center text-[#ABC4FF] font-semibold">Stake Bulba</div>
             </Col>
 
             <Col className="grow gap-3">
               <div className="text-xs text-center text-[#ABC4FF] opacity-50">
-                Stake and Earn RAY to participate in pools. The more and longer you stake the more lottery tickets
+                Stake and Earn Bulba to participate in pools. The more and longer you stake the more lottery tickets
                 you'll be eligible to join with.
               </div>
               <Col className="items-center">

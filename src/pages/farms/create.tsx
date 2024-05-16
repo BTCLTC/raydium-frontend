@@ -261,9 +261,9 @@ export default function CreateFarmPage() {
         <Col className="items-center ml-12 mobile:ml-0">
           <div className="font-medium text-sm mobile:text-xs text-justify leading-snug text-[#abc4ff80] mb-8">
             <span className="text-[#DA2EEF]">Please note: </span>Rewards allocated to farms are final and unused rewards
-            cannot be claimed. However, you can add additional rewards to the farm. 300 RAY is collected as an Ecosystem
-            farm creation fee, which will be deposited into the Raydium treasury. Token rewards should have a minimum
-            duration period of at least 7 days and last no more than 90 days.
+            cannot be claimed. However, you can add additional rewards to the farm. 300 Bulba is collected as an
+            Ecosystem farm creation fee, which will be deposited into the Raydium treasury. Token rewards should have a
+            minimum duration period of at least 7 days and last no more than 90 days.
           </div>
 
           <Button

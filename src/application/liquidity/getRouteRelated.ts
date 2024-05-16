@@ -7,7 +7,7 @@ import {
   ETHMint,
   mSOLMint,
   PAIMint,
-  RAYMint,
+  BulbaMint,
   stSOLMint,
   USDCMint,
   USDHMint,
@@ -22,7 +22,7 @@ export function getRouteRelated(
   targetMint1: PublicKeyish,
   targetMint2: PublicKeyish
 ): LiquidityJsonInfo[] {
-  const routeMiddleMints = [USDCMint, RAYMint, WSOLMint, mSOLMint, PAIMint, stSOLMint, USDHMint, USDTMint, ETHMint].map(
+  const routeMiddleMints = [USDCMint, BulbaMint, WSOLMint, mSOLMint, PAIMint, stSOLMint, USDHMint, USDTMint, ETHMint].map(
     toPubString
   )
   const mintA = toPubString(targetMint1)

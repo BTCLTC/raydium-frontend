@@ -9,7 +9,7 @@ import toUsdCurrency from './toUsdCurrency'
 /**
  * tokenPrice * amount = totalPrice
  *
- * amount should be decimaled (e.g. 20.323 RAY)
+ * amount should be decimaled (e.g. 20.323 Bulba)
  * @example
  * Eth price: Price {4600 usd/eth}
  * amount: BN {10} (or you can imput Fraction {10})

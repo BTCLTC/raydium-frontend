@@ -271,7 +271,7 @@ function StakingCardCollapseItemFace({ open, info }: { open: boolean; info: Hydr
             }
             subValue={
               isHydratedFarmInfo(info)
-                ? info.stakedLpAmount && `${formatNumber(toString(info.stakedLpAmount, { decimalLength: 0 }))} RAY`
+                ? info.stakedLpAmount && `${formatNumber(toString(info.stakedLpAmount, { decimalLength: 0 }))} Bulba`
                 : undefined
             }
           />
@@ -314,7 +314,7 @@ function StakingCardCollapseItemContent({ info }: { info: HydratedFarmInfo | Far
               formatNumber(toString(info.userStakedLpAmount ?? 0), {
                 fractionLength: info.userStakedLpAmount?.token.decimals
               })}{' '}
-            RAY
+            Bulba
           </div>
           <div className="text-[rgba(171,196,255,0.5)] font-medium text-sm mobile:text-xs">
             {isHydratedFarmInfo(info) && prices[String(info.lpMint)] && info.userStakedLpAmount

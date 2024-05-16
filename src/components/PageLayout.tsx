@@ -196,8 +196,8 @@ function NewConcentratedPoolBanner({ className }: { className?: string }) {
           <div className="bg-[#dacc363f] text-center text-[#D8CB39] text-sm mobile:text-xs px-4 py-1">
             You have a concentrated liquidity position to migrate. 0.01% fee tier pools have been upgraded with
             optimized tick spacing to allow for more granular price ranges on stable-pairs.
-            <br /> RAY rewards have shifted from old pools to upgraded pools. Go to the Concentrated liquidity page and
-            manually migrate liquidity to continue receiving RAY rewards.
+            <br /> Bulba rewards have shifted from old pools to upgraded pools. Go to the Concentrated liquidity page
+            and manually migrate liquidity to continue receiving Bulba rewards.
           </div>
         )}
       </FadeIn>
@@ -472,10 +472,7 @@ function Navbar({
   const pcNavContent = (
     <Row className="justify-between items-center mobile:h-14 mobile:bg-cyberpunk-card-bg">
       <Link href="/">
-        <Image
-          className={`cursor-pointer ${inDev ? 'hue-rotate-60' : ''} mobile:hidden`}
-          src="/logo/logo-with-text.svg"
-        />
+        BulbaSwap
       </Link>
 
       <Row className="gap-6 items-center mobile:hidden">
@@ -641,10 +638,10 @@ function SideMenu({ className, onClickCloseBtn }: { className?: string; onClickC
         {isMobile && (
           <Row className="items-center justify-between p-6 mobile:p-4 mobile:pl-8">
             <Link href="/">
-              <Image src="/logo/logo-with-text.svg" className={`mobile:scale-75 ${inDev ? 'hue-rotate-60' : ''}`} />
+              BulbaSwap
             </Link>
             <Icon
-              size={isMobile ? 'sm' : 'md'}
+              size='sm'
               heroIconName="x"
               className="text-[rgba(57,208,216,0.8)] clickable clickable-mask-offset-2"
               onClick={onClickCloseBtn}

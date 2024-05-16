@@ -558,7 +558,7 @@ function IdoItemCardStakeChip({ info }: { info: HydratedIdoInfo }) {
     <Row className={`AlertText items-center bg-[#abc4ff1a] p-3 rounded-xl mb-6`}>
       <Icon className="flex-none text-[#ABC4FF80] mr-2" size="sm" heroIconName="exclamation-circle" />
       <div className="text-[#ABC4FF80] font-medium text-xs">
-        To be eligible for the lottery, you need to <span className="text-[#ABC4FF]">stake 100 RAY</span> with a
+        To be eligible for the lottery, you need to <span className="text-[#ABC4FF]">stake 100 Bulba</span> with a
         deadline of <span className="text-[#ABC4FF]">{toUTC(info.stakeTimeEnd)}</span>.
       </div>
       <Button
@@ -603,7 +603,7 @@ function IdoItemCardContentButtonGroup({ className, info }: { className?: string
           fieldValue={
             <Row className="items-baseline gap-1">
               <div className="text-white font-medium">
-                {toString(stakingHydratedInfo?.userStakedLpAmount) || '--'} RAY
+                {toString(stakingHydratedInfo?.userStakedLpAmount) || '--'} Bulba
               </div>
             </Row>
           }

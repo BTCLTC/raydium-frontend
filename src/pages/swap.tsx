@@ -1057,7 +1057,7 @@ function SwapCardInfo({
             ))}
             <SwapCardItem
               fieldName="Swap Fee"
-              tooltipContent={`Of the 0.25% swap fee, 0.22% goes to LPs and 0.03% is used to buy back RAY.${
+              tooltipContent={`Of the 0.25% swap fee, 0.22% goes to LPs and 0.03% is used to buy back Bulba.${
                 isStable ? ' For stable swaps, the 0.02% fee goes to LPs.' : ''
               } `}
               fieldValue={

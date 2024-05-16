@@ -13,7 +13,7 @@ export default function useConcentratedInitCoinFiller() {
       useConcentrated.setState({ coin1: currentAmmPool.base, coin2: currentAmmPool.quote })
     } else {
       // as user can only enter by 'create-position' button, no need fill ray usdc
-      // useConcentrated.setState({ coin1: getToken(RAYMint), coin2: getToken(USDCMint) })
+      // useConcentrated.setState({ coin1: getToken(BulbaMint), coin2: getToken(USDCMint) })
     }
   }, [tokens])
 }

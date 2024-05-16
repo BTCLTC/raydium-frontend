@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import useToken from '@/application/token/useToken'
-import { RAYMint } from '@/application/token/wellknownToken.config'
+import { BulbaMint } from '@/application/token/wellknownToken.config'
 
 import { QuantumSOLVersionSOL } from '@/application/token/quantumSOL'
 import { getURLQueryEntry } from '@/functions/dom/getURLQueryEntries'
@@ -23,9 +23,9 @@ export default function useLiquidityInitCoinFiller() {
       if (needFillCoin1) {
         useLiquidity.setState({ coin1: QuantumSOLVersionSOL })
       }
-      const needFillCoin2 = !coin2 && !ammId && coin1?.mintString !== toPubString(RAYMint) && !queryHaveSetCoin
+      const needFillCoin2 = !coin2 && !ammId && coin1?.mintString !== toPubString(BulbaMint) && !queryHaveSetCoin
       if (needFillCoin2) {
-        useLiquidity.setState({ coin2: getToken(RAYMint) })
+        useLiquidity.setState({ coin2: getToken(BulbaMint) })
       }
     }, 100)
   }, [getToken])

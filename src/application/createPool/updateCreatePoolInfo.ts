@@ -36,7 +36,7 @@ export async function updateCreatePoolInfo(txParam: { marketId: PublicKeyish }):
     const { baseMint, quoteMint, baseLotSize, quoteLotSize } = MARKET_STATE_LAYOUT_V3.decode(marketBufferInfo.data)
     // assert(
     //   Object.values(routeMiddleMints).includes(String(quoteMint)),
-    //   `only support USDT, USDC, USDH, RAY, WSOL(SOL), mSOL, stSOL, SRM, PAI, ETH, USH. current: ${toPubString(
+    //   `only support USDT, USDC, USDH, Bulba, WSOL(SOL), mSOL, stSOL, SRM, PAI, ETH, USH. current: ${toPubString(
     //     quoteMint
     //   ).slice(0, 4)}...${toPubString(quoteMint).slice(-4)} is not avaliable`
     // )

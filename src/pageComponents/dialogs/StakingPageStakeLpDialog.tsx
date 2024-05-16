@@ -62,14 +62,14 @@ export function StakingPageStakeLpDialog() {
           {/* {String(info?.lpMint)} */}
           <Row className="justify-between items-center mb-6">
             <div className="text-xl font-semibold text-white">
-              {stakeDialogMode === 'withdraw' ? 'Unstake RAY' : 'Stake RAY'}
+              {stakeDialogMode === 'withdraw' ? 'Unstake Bulba' : 'Stake Bulba'}
             </div>
             <Icon className="text-[#ABC4FF] cursor-pointer" heroIconName="x" onClick={close} />
           </Row>
           {/* input-container-box */}
           <CoinInputBox
             className="mb-6"
-            topLeftLabel="Staking RAY"
+            topLeftLabel="Staking Bulba"
             token={stakeDialogInfo?.lp}
             onUserInput={setAmount}
             maxValue={stakeDialogMode === 'withdraw' ? stakeDialogInfo?.userStakedLpAmount : undefined}
@@ -92,11 +92,13 @@ export function StakingPageStakeLpDialog() {
                 { should: gt(userInputTokenAmount, 0) },
                 {
                   should: gte(avaliableTokenAmount, userInputTokenAmount),
-                  fallbackProps: { children: 'Insufficient RAY Balance' }
+                  fallbackProps: { children: 'Insufficient Bulba Balance' }
                 },
                 {
                   should: stakeDialogMode === 'withdraw' ? true : userHasLp,
-                  fallbackProps: { children: stakeDialogMode === 'withdraw' ? 'No Unstakable RAY' : 'No Stakable RAY' }
+                  fallbackProps: {
+                    children: stakeDialogMode === 'withdraw' ? 'No Unstakable Bulba' : 'No Stakable Bulba'
+                  }
                 }
               ]}
               onClick={() => {
@@ -110,7 +112,7 @@ export function StakingPageStakeLpDialog() {
                 })
               }}
             >
-              {stakeDialogMode === 'withdraw' ? 'Unstake RAY' : 'Stake RAY'}
+              {stakeDialogMode === 'withdraw' ? 'Unstake Bulba' : 'Stake Bulba'}
             </Button>
             <Button type="text" disabled={isApprovePanelShown} className="text-sm backdrop-filter-none" onClick={close}>
               Cancel

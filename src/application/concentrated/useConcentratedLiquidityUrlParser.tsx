@@ -16,7 +16,7 @@ import useConnection from '../connection/useConnection'
 
 import { isHydratedConcentratedItemInfo } from './is'
 import useConcentrated from './useConcentrated'
-import { RAYMint, USDCMint } from '../token/wellknownToken.config'
+import { BulbaMint, USDCMint } from '../token/wellknownToken.config'
 
 export default function useConcentratedLiquidityUrlParser() {
   const { query, pathname, replace } = useRouter()
@@ -77,7 +77,7 @@ export default function useConcentratedLiquidityUrlParser() {
         })
       } else {
         useConcentrated.setState({
-          coin1: getToken(RAYMint),
+          coin1: getToken(BulbaMint),
           coin2: getToken(USDCMint)
         })
         // may be just haven't load liquidityPoolJsonInfos yet

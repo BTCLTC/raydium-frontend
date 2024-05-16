@@ -24,7 +24,7 @@ import useNotification from '@/application/notification/useNotification'
 import { usePools } from '@/application/pools/usePools'
 import { routeTo } from '@/application/routeTools'
 import useToken from '@/application/token/useToken'
-import { RAYMint } from '@/application/token/wellknownToken.config'
+import { BulbaMint } from '@/application/token/wellknownToken.config'
 import useWallet from '@/application/wallet/useWallet'
 import { AddressItem } from '@/components/AddressItem'
 import AutoBox from '@/components/AutoBox'
@@ -415,7 +415,7 @@ function FarmCard() {
   const timeBasis = useFarms((s) => s.timeBasis)
   const dataSource = (
     (hydratedInfos.length ? hydratedInfos : jsonInfos) as (FarmPoolJsonInfo | HydratedFarmInfo)[]
-  ).filter((i) => !isMintEqual(i.lpMint, RAYMint)) // exclude special staked pool
+  ).filter((i) => !isMintEqual(i.lpMint, BulbaMint)) // exclude special staked pool
 
   const tabedDataSource = useMemo(
     () =>

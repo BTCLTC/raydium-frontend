@@ -64,7 +64,11 @@ export const useConnection = create<ConnectionStore>((set, get) => ({
 
   availableEndPoints: [],
 
-  currentEndPoint: undefined,
+  currentEndPoint: {
+    name: 'Devnet',
+    url: clusterApiUrl('devnet'),
+    net: 'devnet'
+  },
   autoChoosedEndPoint: undefined,
 
   isLoading: false,

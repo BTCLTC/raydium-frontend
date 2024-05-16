@@ -363,7 +363,7 @@ function InputCard({ info }: { info: HydratedCompensationInfoItem }) {
                         label4: `Compensation`,
                         amount4: tokenInfo.debtAmount,
                         tooltip4:
-                          'This is the claimable amount of RAY as compensation and is equal to (Total value in RAY)*(1.2). This equates to 20% additional RAY as compensation.'
+                          'This is the claimable amount of Bulba as compensation and is equal to (Total value in Bulba)*(1.2). This equates to 20% additional Bulba as compensation.'
                       }
                 )}
               </Card>

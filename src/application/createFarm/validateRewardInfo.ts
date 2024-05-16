@@ -5,7 +5,7 @@ import { gte, isMeaningfulNumber, lt, lte } from '@/functions/numberish/compare'
 import { add, div } from '@/functions/numberish/operations'
 import useConnection from '../connection/useConnection'
 import { MAX_DURATION, MIN_DURATION } from '../farms/handleFarmInfo'
-import { RAYMint } from '../token/wellknownToken.config'
+import { BulbaMint } from '../token/wellknownToken.config'
 import useWallet from '../wallet/useWallet'
 import { UIRewardInfo } from './type'
 import useCreateFarms from './useCreateFarm'
@@ -15,9 +15,9 @@ export function validate300Ray(): { valid: boolean; reason?: string } {
   if (!owner) return { valid: false, reason: 'wallet not connected' }
 
   const { rewards } = useCreateFarms.getState()
-  const rewardRayAmount = rewards.find((r) => isMintEqual(r.token?.mint, RAYMint))?.amount
-  const haveOver300Ray = gte(getBalance(RAYMint) ?? 0, add(0, rewardRayAmount ?? 300))
-  if (!haveOver300Ray) return { valid: false, reason: 'User must have 300 RAY' }
+  const rewardRayAmount = rewards.find((r) => isMintEqual(r.token?.mint, BulbaMint))?.amount
+  const haveOver300Ray = gte(getBalance(BulbaMint) ?? 0, add(0, rewardRayAmount ?? 300))
+  if (!haveOver300Ray) return { valid: false, reason: 'User must have 300 Bulba' }
   return { valid: true }
 }
 
