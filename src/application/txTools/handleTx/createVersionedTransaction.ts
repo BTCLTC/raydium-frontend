@@ -13,13 +13,12 @@ export async function buildTransactionsFromSDKInnerTransactions({
   txVersion: TxVersion
   transactions: InnerSimpleTransaction[]
 }): Promise<(Transaction | VersionedTransaction)[]> {
-  const inDev = useAppSettings((s) => s.inDev)
   const spawnedTransactions = await buildSimpleTransaction({
     connection,
     payer: wallet,
     innerTransactions: transactions,
     makeTxVersion: txVersion,
-    addLookupTableInfo: !inDev ? LOOKUP_TABLE_CACHE : undefined,
+    addLookupTableInfo: undefined,
   })
   return spawnedTransactions
 }
