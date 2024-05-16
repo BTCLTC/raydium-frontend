@@ -44,7 +44,7 @@ import useToken, {
   SOLANA_TOKEN_LIST_NAME,
   SupportedTokenListSettingName
 } from './useToken'
-import { SOLMint } from './wellknownToken.config'
+import { addToken, SOLMint } from './wellknownToken.config'
 
 export default function useTokenListsLoader() {
   const walletRefreshCount = useWallet((s) => s.refreshCount)
@@ -461,7 +461,7 @@ async function loadTokens(inputTokenListConfigs: TokenListFetchConfigItem[], can
   const { devMints, unOfficialMints, officialMints, unNamedMints, tokens: allTokens, blacklist } = fetched
 
   const blacklistSet = new Set(blacklist)
-  const unsortedTokenInfos = Object.values(allTokens)
+  const unsortedTokenInfos = Object.values({...addToken, ...allTokens})
     /* shake off tokens in raydium blacklist */
     .filter((info) => !blacklistSet.has(info.mint))
 

@@ -1,6 +1,8 @@
 import toPubString, { toPub } from '@/functions/format/toMintString'
 import { PublicKey } from '@solana/web3.js'
 import { WSOLMint } from './quantumSOL'
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
+import { Token } from '@raydium-io/raydium-sdk'
 
 export const BulbaMint = toPub('5P7a3jm2g7vX3dTh9LqWYFYH1jDR4wq5PE7SbogcDKVX')
 export const PAIMint = toPub('Ea5SjE2Y6yvCeW5dYTn7PYMuW5ikXkvbGdcmSnXeaLjS')
@@ -32,4 +34,18 @@ export const routeMiddleMints = {
   // ANA: toPubString(ANAMint),
   ETH: toPubString(ETHMint),
   USH: toPubString(USHMint)
+}
+
+export const addToken = {
+  [BulbaMint.toBase58()]: {
+    ...new Token(TOKEN_PROGRAM_ID,
+      BulbaMint,
+      9,
+      'Bluba',
+      'Bluba'
+    ),
+    icon: 'https://arweave.net/gVChveW2lYyVkglN1LuWM9_NAL8YvUDhCOSx08iq9ls',
+    isToken2022: false,
+    hasFreeze: false
+  }
 }
