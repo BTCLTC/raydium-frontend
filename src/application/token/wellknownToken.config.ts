@@ -44,7 +44,7 @@ export const addToken = {
       'Bluba',
       'Bluba'
     ),
-    icon: 'https://arweave.net/gVChveW2lYyVkglN1LuWM9_NAL8YvUDhCOSx08iq9ls',
+    icon: 'https://bafkreiectrpmrbh5fg6dxsnoxetus7l7hw6b4g5pcijvmzadr3dcm7gghm.ipfs.nftstorage.link',
     isToken2022: false,
     hasFreeze: false
   }
