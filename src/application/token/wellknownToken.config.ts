@@ -1,5 +1,6 @@
 import toPubString, { toPub } from '@/functions/format/toMintString'
 import { PublicKey } from '@solana/web3.js'
+import { ApiPoolInfoV4, DEVNET_PROGRAM_ID, Liquidity, Market } from '@raydium-io/raydium-sdk'
 import { WSOLMint } from './quantumSOL'
 
 export const BulbaMint = toPub('5P7a3jm2g7vX3dTh9LqWYFYH1jDR4wq5PE7SbogcDKVX')
@@ -44,4 +45,38 @@ export const addToken = {
     isToken2022: false,
     hasFreeze: false
   }
+}
+
+export const bulbaPool: ApiPoolInfoV4 = {
+  id: 'DpyoDeZpBg46LgHd1o7VNE6jr3yCt7yM9wbcnCV7FjAR',
+  baseMint: '5P7a3jm2g7vX3dTh9LqWYFYH1jDR4wq5PE7SbogcDKVX',
+  quoteMint: 'So11111111111111111111111111111111111111112',
+  lpMint: 'emKAWYBzoJvQN99UcAvCmYFtdDhFzScn6NVZgDiMTQL',
+  baseDecimals: 9,
+  quoteDecimals: 9,
+  lpDecimals: 9,
+  version: 4,
+  programId: DEVNET_PROGRAM_ID.AmmV4.toBase58(),
+  authority: Liquidity.getAssociatedAuthority({
+    programId: DEVNET_PROGRAM_ID.AmmV4,
+  }).publicKey.toBase58(),
+  openOrders: '6GbZGJ5rzQECvDPhZ5CvJc1rUSgYzWv1JL8dZSFdLsTV',
+  targetOrders: 'Cvt43N1CHY5fWuzoq34gU3Ychkzy3oiCffkGoq8qf6rm',
+  baseVault: 'GPuyLAzticTy12VSfkkzTBJn3WLnvS3tAgVH7fJyBpsz',
+  quoteVault: 'A7g2qP7PvEwFWFfJLcyfS75G6xuvcabjTzxKL2Ko16rc',
+  withdrawQueue: '11111111111111111111111111111111',
+  lpVault: '11111111111111111111111111111111',
+  marketVersion: 3,
+  marketProgramId: 'EoTcMgcDRTJVZDMZWBoU6rhYHZfkNTVEAfz3uUJRcYGj',
+  marketId: 'BkXLy7XYJXYWV64C1UF3UgHMwPgWVMzSjJrCF5oae2zy',
+  marketAuthority: Market.getAssociatedAuthority({
+    programId: new PublicKey('EoTcMgcDRTJVZDMZWBoU6rhYHZfkNTVEAfz3uUJRcYGj'),
+    marketId: new PublicKey('BkXLy7XYJXYWV64C1UF3UgHMwPgWVMzSjJrCF5oae2zy'),
+  }).publicKey.toBase58(),
+  marketBaseVault: 'FqEtQ8byDVL4t77Pno1K5Y7A6XhVdzsH8ocHaW9SwfGX',
+  marketQuoteVault: 'CVWTY4moxd8Ex5ZKwtaTwkAEjkp1iJHWxWLoiftFqiPu',
+  marketBids: 'HrsmGtSQCX881mtsX4XQsyUpitwxSbjNAKczug9LgP8Q',
+  marketAsks: 'GyLajq9YumcEzBntKjDQHrSLQmMBBaCZxW2nZk44VEW5',
+  marketEventQueue: 'Bk72frMGgwy77HYNW5G1Jpf8XXkm7LEmvCEdAc4j2in7',
+  lookupTableAccount: '11111111111111111111111111111111'
 }

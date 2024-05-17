@@ -35,10 +35,10 @@ import {
 } from '@raydium-io/raydium-sdk'
 import { Connection, PublicKey } from '@solana/web3.js'
 import { getEpochInfo } from '../clmmMigration/getEpochInfo'
-import { getSDKParsedClmmPoolInfo } from '../common/getSDKParsedClmmPoolInfo'
 import useAppAdvancedSettings from '../common/useAppAdvancedSettings'
 import { BestResultStartTimeInfo } from './type'
 import useLiquidity from '../liquidity/useLiquidity'
+import { bulbaPool } from '../token/wellknownToken.config'
 
 const apiCache = {} as {
   ammV3?: ApiClmmPoolsItem[]
@@ -189,13 +189,6 @@ export async function getAddLiquidityDefaultPool({
   mint1: PublicKeyish
   mint2: PublicKeyish
 }) {
-  const { ammV3, liquidity: apiPoolList } = await getApiInfos({
-    mint1: mint1.toString(),
-    mint2: mint2.toString()
-  })
-  assert(isArray(ammV3), 'ammV3 api must be loaded')
-  assert(apiPoolList, 'liquidity api must be loaded')
-  assert(isArray(apiPoolList?.official), 'liquidity api must be loaded')
   assert(connection, 'need connection to get default')
   const isInputPublicKeyish = isPubKeyish(mint1)
   const isOutputPublicKeyish = isPubKeyish(mint2)
@@ -203,13 +196,18 @@ export async function getAddLiquidityDefaultPool({
     console.error('input/output is not PublicKeyish')
     return
   }
-  const sdkParsedAmmV3PoolInfo = await getSDKParsedClmmPoolInfo({ connection, apiClmmPoolItems: ammV3 })
+
+  const apiPoolList = {
+    official: [bulbaPool],
+    unOfficial: []
+  }
+
   const { routes, poolInfosCache } = getSDKCacheInfosOfSwap({
     connection,
     inputMint: toPub(mint1),
     outputMint: toPub(mint2),
     apiPoolList: apiPoolList,
-    sdkParsedAmmV3PoolInfo: sdkParsedAmmV3PoolInfo
+    sdkParsedAmmV3PoolInfo: {}
   })
   const awaitedPoolInfosCache = await poolInfosCache
   if (!awaitedPoolInfosCache) return
@@ -233,31 +231,24 @@ export async function getAllSwapableRouteInfos({
   output: SplToken
   inputAmount: Numberish
 }) {
-  const { ammV3, liquidity: apiPoolList } = await getApiInfos({
-    mint1: input.mint.toBase58(),
-    mint2: output.mint.toBase58()
-  })
   assert(
     connection,
     "no connection provide. it will default useConnection's connection, but can still appointed by user"
   )
-  assert(isArray(ammV3), 'ammV3 api must be loaded')
-  assert(apiPoolList, 'liquidity api must be loaded')
-  assert(isArray(apiPoolList?.official), 'liquidity api must be loaded')
   const { chainTimeOffset } = useConnection.getState()
   const chainTime = ((chainTimeOffset ?? 0) + Date.now()) / 1000
 
-  const sdkParsedAmmV3PoolInfo = await getSDKParsedClmmPoolInfo({
-    connection,
-    apiClmmPoolItems: ammV3,
-    cacheable: true
-  })
+  const apiPoolList = {
+    official: [bulbaPool],
+    unOfficial: []
+  }
+
   const { routes, poolInfosCache, tickCache, mintInfos } = getSDKCacheInfosOfSwap({
     connection,
     inputMint: input.mint,
     outputMint: output.mint,
     apiPoolList: apiPoolList,
-    sdkParsedAmmV3PoolInfo: sdkParsedAmmV3PoolInfo
+    sdkParsedAmmV3PoolInfo: {}
   })
 
   const [simulateResult, tickResult, mintInfosResult, nowEpochResult] = await Promise.allSettled([
